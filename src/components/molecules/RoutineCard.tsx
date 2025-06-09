@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Text from "../atoms/Text"
-import type { Exercise } from "../../types"
+import Text from "@/components/atoms/Text"
+import type { Exercise } from "@/types"
 
 interface RoutineCardProps {
   day: string

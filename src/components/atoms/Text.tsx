@@ -1,12 +1,12 @@
+import type React from "react"
 import type { ReactNode } from "react"
-import type { JSX } from "react/jsx-runtime"
 
 interface TextProps {
   children: ReactNode
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "body" | "caption" | "lead"
   color?: "primary" | "secondary" | "muted" | "accent"
   className?: string
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
 }
 
 export default function Text({ children, variant = "body", color = "primary", className = "", as }: TextProps) {
@@ -28,7 +28,7 @@ export default function Text({ children, variant = "body", color = "primary", cl
     accent: "text-accent-600",
   }
 
-  const Component = as || (variant.startsWith("h") ? (variant as keyof JSX.IntrinsicElements) : "p")
+  const Component = as || (variant.startsWith("h") ? (variant as keyof React.JSX.IntrinsicElements) : "p")
 
   return <Component className={`${variantClasses[variant]} ${colorClasses[color]} ${className}`}>{children}</Component>
 }

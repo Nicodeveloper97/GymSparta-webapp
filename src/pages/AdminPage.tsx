@@ -1,15 +1,14 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "react-router-dom"
-import Text from "../components/atoms/Text"
-import Button from "../components/atoms/Button"
-import Input from "../components/atoms/Input"
+import Text from "@/components/atoms/Text"
+import Button from "@/components/atoms/Button"
+import Input from "@/components/atoms/Input"
 import { ArrowLeft, Plus, Trash2, Edit, Eye } from "lucide-react"
-import type { Routine, DayRoutine } from "../types"
+import type { Routine, DayRoutine } from "@/types"
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<"create" | "list">("create")
@@ -221,7 +220,7 @@ export default function AdminPage() {
                               />
                               <Input
                                 placeholder="Notas (opcional)"
-                                value={exercise.notes}
+                                value={exercise.notes || ""}
                                 onChange={(e) => updateExercise(dayIndex, exerciseIndex, "notes", e.target.value)}
                               />
                               <div className="flex gap-2">

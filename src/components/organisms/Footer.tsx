@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Text from "../atoms/Text"
+import Text from "@/components/atoms/Text"
 import { Instagram, Twitter, Facebook, Youtube } from "lucide-react"
 
 export default function Footer() {

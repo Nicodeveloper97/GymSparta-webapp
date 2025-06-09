@@ -1,11 +1,10 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
-import Input from "../atoms/Input"
-import Button from "../atoms/Button"
+import Input from "@/components/atoms/Input"
+import Button from "@/components/atoms/Button"
 import { Search } from "lucide-react"
 
 interface SearchBarProps {
