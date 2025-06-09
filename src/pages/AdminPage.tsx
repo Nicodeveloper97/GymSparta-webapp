@@ -62,14 +62,16 @@ export default function AdminPage() {
 
   const updateExercise = (dayIndex: number, exerciseIndex: number, field: string, value: string | number) => {
     const newRoutine = [...routine]
+    const exercise = newRoutine[dayIndex].exercises[exerciseIndex]
+
     if (field === "sets") {
       newRoutine[dayIndex].exercises[exerciseIndex] = {
-        ...newRoutine[dayIndex].exercises[exerciseIndex],
-        [field]: value as number,
+        ...exercise,
+        sets: typeof value === "number" ? value : Number.parseInt(value as string) || 0,
       }
     } else {
       newRoutine[dayIndex].exercises[exerciseIndex] = {
-        ...newRoutine[dayIndex].exercises[exerciseIndex],
+        ...exercise,
         [field]: value as string,
       }
     }
@@ -213,7 +215,7 @@ export default function AdminPage() {
                               <Input
                                 type="number"
                                 placeholder="Series"
-                                value={exercise.sets || ""}
+                                value={exercise.sets === 0 ? "" : exercise.sets}
                                 onChange={(e) =>
                                   updateExercise(dayIndex, exerciseIndex, "sets", Number.parseInt(e.target.value) || 0)
                                 }
