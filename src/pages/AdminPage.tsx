@@ -62,9 +62,16 @@ export default function AdminPage() {
 
   const updateExercise = (dayIndex: number, exerciseIndex: number, field: string, value: string | number) => {
     const newRoutine = [...routine]
-    newRoutine[dayIndex].exercises[exerciseIndex] = {
-      ...newRoutine[dayIndex].exercises[exerciseIndex],
-      [field]: value,
+    if (field === "sets") {
+      newRoutine[dayIndex].exercises[exerciseIndex] = {
+        ...newRoutine[dayIndex].exercises[exerciseIndex],
+        [field]: value as number,
+      }
+    } else {
+      newRoutine[dayIndex].exercises[exerciseIndex] = {
+        ...newRoutine[dayIndex].exercises[exerciseIndex],
+        [field]: value as string,
+      }
     }
     setRoutine(newRoutine)
   }

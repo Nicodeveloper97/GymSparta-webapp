@@ -37,7 +37,7 @@ export default function Footer() {
               Transformando vidas a través del fitness desde 2014. Tu mejor versión te está esperando.
             </Text>
             <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
+              {socialLinks.map((social) => (
                 <motion.button
                   key={social.label}
                   className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all duration-200"
