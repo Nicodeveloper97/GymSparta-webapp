@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import Text from "@/components/atoms/Text"
+import Button from "@/components/atoms/Button"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -58,17 +59,22 @@ export default function Header() {
               >
                 {item.name}
                 <motion.div
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-barn origin-left"
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-gold-400 origin-left"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
                 />
               </motion.button>
             ))}
+            <Link to="/admin">
+              <Button variant="primary" size="sm">
+                Panel Admin
+              </Button>
+            </Link>
           </nav>
 
           <button
-            className="md:hidden text-flash hover:text-barn transition-colors duration-200"
+            className="md:hidden text-neutral-300 hover:text-white transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -77,7 +83,7 @@ export default function Header() {
 
         {isMenuOpen && (
           <motion.nav
-            className="md:hidden mt-4 pb-4 border-t border-bean pt-4"
+            className="md:hidden mt-4 pb-4 border-t border-dark-600 pt-4"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -91,7 +97,7 @@ export default function Header() {
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-2 text-flash hover:text-barn transition-colors duration-200 font-medium"
+                className="block w-full text-left py-2 text-neutral-300 hover:text-gold-400 transition-colors duration-200 font-medium"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -99,6 +105,13 @@ export default function Header() {
                 {item.name}
               </motion.button>
             ))}
+            <div className="mt-4">
+              <Link to="/admin">
+                <Button variant="primary" size="sm" className="w-full">
+                  Panel Admin
+                </Button>
+              </Link>
+            </div>
           </motion.nav>
         )}
       </div>
