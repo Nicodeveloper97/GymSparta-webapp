@@ -85,9 +85,9 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-eerie">
       {/* Header */}
-      <header className="bg-white border-b border-neutral-200 py-4">
+      <header className="bg-raisin border-b border-bean py-4">
         <div className="container-wide px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -118,11 +118,11 @@ export default function AdminPage() {
 
           {/* Tabs */}
           <div className="flex justify-center mb-8">
-            <div className="bg-white rounded-lg p-1 border border-neutral-200">
+            <div className="bg-raisin rounded-lg p-1 border border-bean">
               <button
                 onClick={() => setActiveTab("create")}
                 className={`px-6 py-3 rounded-md transition-all duration-200 ${
-                  activeTab === "create" ? "bg-neutral-900 text-white" : "text-neutral-700 hover:text-neutral-900"
+                  activeTab === "create" ? "bg-barn text-flash" : "text-flash hover:text-barn"
                 }`}
               >
                 Crear Rutina
@@ -130,7 +130,7 @@ export default function AdminPage() {
               <button
                 onClick={() => setActiveTab("list")}
                 className={`px-6 py-3 rounded-md transition-all duration-200 ${
-                  activeTab === "list" ? "bg-neutral-900 text-white" : "text-neutral-700 hover:text-neutral-900"
+                  activeTab === "list" ? "bg-barn text-flash" : "text-flash hover:text-barn"
                 }`}
               >
                 Ver Rutinas

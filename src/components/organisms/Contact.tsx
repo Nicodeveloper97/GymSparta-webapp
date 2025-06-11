@@ -2,8 +2,8 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import Text from "../atoms/Text"
-import ContactForm from "../molecules/ContactForm"
+import Text from "@/components/atoms/Text"
+import ContactForm from "@/components/molecules/ContactForm"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 export default function Contact() {
@@ -34,7 +34,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-white" ref={ref}>
+    <section id="contact" className="section-padding bg-eerie" ref={ref}>
       <div className="container-wide px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,8 +70,8 @@ export default function Contact() {
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="w-12 h-12 bg-neutral-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-6 h-6 text-neutral-700" />
+                  <div className="w-12 h-12 bg-raisin rounded-xl flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-6 h-6 text-barn" />
                   </div>
                   <div>
                     <Text variant="body" className="font-medium mb-1">

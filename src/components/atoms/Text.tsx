@@ -4,7 +4,7 @@ import type { ReactNode } from "react"
 interface TextProps {
   children: ReactNode
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "body" | "caption" | "lead"
-  color?: "primary" | "secondary" | "muted" | "accent"
+  color?: "primary" | "secondary" | "muted" | "accent" | "gold" | "gradient"
   className?: string
   as?: keyof React.JSX.IntrinsicElements
 }
@@ -22,10 +22,12 @@ export default function Text({ children, variant = "body", color = "primary", cl
   }
 
   const colorClasses = {
-    primary: "text-neutral-900",
-    secondary: "text-neutral-700",
-    muted: "text-neutral-500",
-    accent: "text-accent-600",
+    primary: "text-flash", // Anti-flash white
+    secondary: "text-neutral-300",
+    muted: "text-neutral-400",
+    accent: "text-barn", // Barn red
+    gold: "text-bean", // Black bean
+    gradient: "text-gradient-primary",
   }
 
   const Component = as || (variant.startsWith("h") ? (variant as keyof React.JSX.IntrinsicElements) : "p")

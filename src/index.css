@@ -4,11 +4,36 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
+  :root {
+    --background: 0 0% 9%; /* #181616 - Eerie black */
+    --foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --card: 0 0% 15%; /* #272727 - Raisin black */
+    --card-foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --popover: 0 0% 15%; /* #272727 - Raisin black */
+    --popover-foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --primary: 0 99% 23%; /* #730101 - Barn red */
+    --primary-foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --secondary: 0 100% 11%; /* #380000 - Black bean */
+    --secondary-foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --muted: 0 0% 15%; /* #272727 - Raisin black */
+    --muted-foreground: 0 0% 60%; /* Gris medio */
+    --accent: 0 99% 23%; /* #730101 - Barn red */
+    --accent-foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --destructive: 0 99% 23%; /* #730101 - Barn red */
+    --destructive-foreground: 0 0% 93%; /* #ECECEC - Anti-flash white */
+    --border: 0 100% 11%; /* #380000 - Black bean */
+    --input: 0 100% 11%; /* #380000 - Black bean */
+    --ring: 0 99% 23%; /* #730101 - Barn red */
+    --radius: 0.5rem;
   }
+
+  * {
+    @apply border-border;
+  }
+
   body {
     font-family: "Inter", sans-serif;
+    @apply bg-eerie text-flash; /* #181616 y #ECECEC */
   }
 
   h1,
@@ -18,6 +43,7 @@
   h5,
   h6 {
     font-family: "Playfair Display", serif;
+    @apply text-flash; /* #ECECEC */
   }
 }
 
@@ -26,22 +52,21 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar usando la nueva paleta */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  @apply bg-eerie; /* #181616 */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 2px;
+  @apply bg-barn rounded-full; /* #730101 */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  @apply bg-primary-500;
 }
 
 /* Animations */
@@ -87,22 +112,22 @@ html {
   animation: pulse-subtle 2s ease-in-out infinite;
 }
 
-/* Utilities */
+/* Utilities usando la nueva paleta */
 .hover-lift {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(115, 1, 1, 0.3); /* #730101 con transparencia */
 }
 
 .card {
-  @apply bg-white rounded-lg border border-neutral-200 shadow-sm;
+  @apply bg-raisin rounded-lg border border-bean shadow-lg; /* #272727 y #380000 */
 }
 
 .card-hover {
-  @apply hover:shadow-md transition-shadow duration-200;
+  @apply hover:shadow-xl hover:border-barn transition-all duration-300; /* #730101 */
 }
 
 .text-balance {
@@ -110,11 +135,11 @@ html {
 }
 
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2;
+  @apply focus:outline-none focus:ring-2 focus:ring-barn focus:ring-offset-2 focus:ring-offset-eerie; /* #730101 y #181616 */
 }
 
 .divider {
-  @apply w-12 h-px bg-neutral-300 mx-auto;
+  @apply w-12 h-px bg-gradient-to-r from-barn to-bean mx-auto; /* #730101 a #380000 */
 }
 
 .section-padding {
@@ -132,4 +157,85 @@ html {
 .backdrop-blur-subtle {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* Gradient backgrounds usando la nueva paleta */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #730101 0%, #380000 100%); /* Barn red a Black bean */
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #272727 0%, #181616 100%); /* Raisin black a Eerie black */
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #380000 0%, #730101 100%); /* Black bean a Barn red */
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-primary text-flash hover:shadow-lg transition-all duration-300;
+  box-shadow: 0 4px 15px rgba(115, 1, 1, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(115, 1, 1, 0.4);
+}
+
+.btn-secondary {
+  @apply bg-raisin text-flash border border-barn hover:bg-barn hover:border-bean transition-all duration-300;
+}
+
+.btn-accent {
+  @apply bg-gradient-accent text-flash hover:shadow-lg transition-all duration-300;
+  box-shadow: 0 4px 15px rgba(56, 0, 0, 0.25);
+}
+
+/* Text gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #730101 0%, #380000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #380000 0%, #730101 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(115, 1, 1, 0.3); /* #730101 */
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(56, 0, 0, 0.3); /* #380000 */
+}
+
+/* Hover effects específicos */
+.hover-barn:hover {
+  @apply bg-barn text-flash;
+}
+
+.hover-bean:hover {
+  @apply bg-bean text-flash;
+}
+
+/* Cyber grid pattern */
+.cyber-grid {
+  background-image: linear-gradient(to right, rgba(115, 1, 1, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(115, 1, 1, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Hex pattern */
+.hex-pattern {
+  background-color: transparent;
+  background-image: radial-gradient(circle at center, rgba(115, 1, 1, 0.1) 0, rgba(115, 1, 1, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(56, 0, 0, 0.07) 0, rgba(56, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
 }

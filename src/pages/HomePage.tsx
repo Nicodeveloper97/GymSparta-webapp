@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import LoadingScreen from "../components/organisms/LoadingScreen"
-import Header from "../components/organisms/Header"
-import Hero from "../components/organisms/Hero"
-import About from "../components/organisms/About"
-import RoutineSearch from "../components/organisms/RoutineSearch"
-import Contact from "../components/organisms/Contact"
-import Footer from "../components/organisms/Footer"
+import LoadingScreen from "@/components/organisms/LoadingScreen"
+import Header from "@/components/organisms/Header"
+import Hero from "@/components/organisms/Hero"
+import About from "@/components/organisms/About"
+import RoutineSearch from "@/components/organisms/RoutineSearch"
+import Contact from "@/components/organisms/Contact"
+import Footer from "@/components/organisms/Footer"
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true)
@@ -22,7 +22,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-eerie">
       <AnimatePresence mode="wait">
         {isLoading ? (
           <LoadingScreen key="loading" />

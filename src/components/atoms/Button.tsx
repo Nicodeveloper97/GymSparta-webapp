@@ -5,7 +5,7 @@ import type { ReactNode } from "react"
 
 interface ButtonProps {
   children: ReactNode
-  variant?: "primary" | "secondary" | "ghost" | "link"
+  variant?: "primary" | "secondary" | "ghost" | "link" | "gold"
   size?: "sm" | "md" | "lg"
   onClick?: () => void
   type?: "button" | "submit"
@@ -23,13 +23,14 @@ export default function Button({
   className = "",
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+    "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-dark-800 disabled:opacity-50 disabled:cursor-not-allowed"
 
   const variantClasses = {
-    primary: "bg-neutral-900 text-white hover:bg-neutral-800 shadow-sm",
-    secondary: "bg-white text-neutral-900 border border-neutral-200 hover:border-neutral-300 shadow-sm",
-    ghost: "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100",
-    link: "text-neutral-900 underline-offset-4 hover:underline",
+    primary: "bg-gradient-primary text-flash hover:shadow-lg hover:shadow-barn/25 hover:scale-105",
+    secondary: "bg-raisin text-flash border border-barn hover:bg-barn hover:border-bean",
+    ghost: "text-flash hover:text-barn hover:bg-raisin",
+    link: "text-barn underline-offset-4 hover:underline hover:text-primary-500",
+    gold: "bg-gradient-accent text-flash hover:shadow-lg hover:shadow-bean/25 hover:scale-105 font-semibold",
   }
 
   const sizeClasses = {

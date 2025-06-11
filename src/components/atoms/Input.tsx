@@ -24,7 +24,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         value={value || ""}
         onChange={onChange}
         required={required}
-        className={`w-full px-4 py-3 bg-white border border-neutral-200 rounded-lg text-neutral-900 placeholder-neutral-500 focus:outline-none focus:border-neutral-900 focus:ring-2 focus:ring-neutral-900 focus:ring-opacity-10 transition-all duration-200 ${className}`}
+        className={`w-full px-4 py-3 bg-raisin border border-bean rounded-lg text-flash placeholder-neutral-400 focus:outline-none focus:border-barn focus:ring-2 focus:ring-barn focus:ring-opacity-50 transition-all duration-300 ${className}`}
       />
     )
   },

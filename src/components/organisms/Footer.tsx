@@ -16,7 +16,7 @@ export default function Footer() {
   const services = ["Entrenamiento Personal", "Clases Grupales", "Nutrición Deportiva", "Evaluación Física"]
 
   return (
-    <footer className="bg-neutral-900 text-white py-16">
+    <footer className="bg-eerie text-flash py-16">
       <div className="container-wide px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <motion.div
@@ -40,7 +40,7 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <motion.button
                   key={social.label}
-                  className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-700 transition-all duration-200"
+                  className="w-10 h-10 bg-raisin rounded-lg flex items-center justify-center text-neutral-400 hover:text-flash hover:bg-barn transition-all duration-200"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
