@@ -5,7 +5,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import Input from "@/components/atoms/Input"
 import Button from "@/components/atoms/Button"
-import { Search, Shield } from "lucide-react"
+import { Search, Shield, Lock } from "lucide-react"
 
 interface SearchBarProps {
   onSearch: (document: string) => void
@@ -39,7 +39,7 @@ export default function SearchBar({ onSearch, placeholder = "Ingresa tu número 
           placeholder={placeholder}
           value={document}
           onChange={(e) => setDocument(e.target.value)}
-          className="pl-14 bg-eerie border-bean hover:border-barn focus:border-barn transition-all duration-300 text-center font-mono text-lg tracking-wider"
+          className="pl-14 bg-eerie border-4 border-bean hover:border-barn focus:border-barn transition-all duration-300 text-center font-mono text-lg tracking-wider"
           required
         />
         <motion.div
@@ -50,10 +50,15 @@ export default function SearchBar({ onSearch, placeholder = "Ingresa tu número 
         />
       </div>
 
-      <Button type="submit" variant="primary" size="lg" className="w-full group relative overflow-hidden">
+      <Button
+        type="submit"
+        variant="primary"
+        size="lg"
+        className="w-full group relative overflow-hidden border-4 border-barn"
+      >
         <span className="flex items-center justify-center space-x-3 relative z-10">
-          <Search className="w-5 h-5" />
-          <span className="font-bold tracking-wider">ACCEDER AL PROTOCOLO</span>
+          <Search className="w-5 h-5 mr-2" />
+          <span className="font-bold tracking-wider uppercase">Acceder Al Combate</span>
         </span>
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-barn via-bean to-barn opacity-0 group-hover:opacity-20"
@@ -63,8 +68,9 @@ export default function SearchBar({ onSearch, placeholder = "Ingresa tu número 
       </Button>
 
       <div className="text-center">
-        <span className="text-sm text-neutral-400 uppercase tracking-wider">
-          🔒 ACCESO ENCRIPTADO • PROTOCOLO SEGURO
+        <span className="inline-flex items-center text-sm text-neutral-400 uppercase tracking-wider">
+          <Lock className="w-4 h-4 mr-2 text-barn" />
+          ACCESO RESTRINGIDO • SOLO GUERREROS
         </span>
       </div>
     </motion.form>

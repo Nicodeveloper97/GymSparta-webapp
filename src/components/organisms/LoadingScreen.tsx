@@ -19,15 +19,15 @@ export default function LoadingScreen() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="w-20 h-20 mx-auto mb-6 relative">
+          <div className="w-32 h-32 mx-auto mb-6 relative">
             <motion.div
-              className="w-full h-full bg-gradient-primary rounded-full flex items-center justify-center relative"
+              className="w-full h-full rounded-full flex items-center justify-center relative overflow-hidden"
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             >
-              <div className="w-10 h-10 border-2 border-flash rounded-full" />
+              <img src="/images/Logo.jpg" alt="GymSparta Logo" className="w-full h-full object-cover" />
               <motion.div
-                className="absolute inset-0 border-2 border-barn rounded-full"
+                className="absolute inset-0 border-4 border-barn rounded-full"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
               />
